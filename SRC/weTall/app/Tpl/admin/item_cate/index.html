@@ -22,7 +22,10 @@
 <body><BR><BR>
 
 <div class="pad_lr_10">
-    <!--div class="J_tablelist table_list" data-acturi="{:U('item_cate/ajax_edit')}"-->
+    <div id="J_ajax_loading" class="ajax_loading">提交请求中，请稍候...</div>
+    <div class="content_menu ib_a blue line_x">
+    	<a class="add fb J_showdialog" href="javascript:void(0);" data-uri="/weTall/index.php?g=admin&m=item_cate&a=add" data-title="添加分类" data-id="add" data-width="520" data-height="360"><em>添加分类</em></a>　            </div>
+
     <div class="J_tablelist table_list"> 
     <table width="100%" cellspacing="0" id="J_cate_tree">
         <thead>
@@ -35,7 +38,7 @@
               	<th width="60"><span data-tdtype="order_by" data-field="ordid">{:L('sort_order')}</span></th>
                 <th width="60"><span data-tdtype="order_by" data-field="is_index">{:L('show_index')}</span></th>
 				<th width="60"><span data-tdtype="order_by" data-field="status">{:L('status')}</span></th>
-                <!-- <th width="180">{:L('operations_manage')}</th>-->
+                <th width="180">{:L('operations_manage')}</th>
             </tr>
         </thead>
     	<tbody>
@@ -43,11 +46,11 @@
     	</tbody>
     </table>
     </div>
-    <!--div class="btn_wrap_fixed">
+    <div class="btn_wrap_fixed">
         <label class="select_all mr10"><input type="checkbox" name="checkall" class="J_checkall">{:L('select_all')}/{:L('cancel')}</label>
         <input type="button" class="btn btn_submit" data-tdtype="batch_action" data-acttype="ajax_form" data-id="move" data-uri="{:U('item_cate/move')}" data-name="id" data-title="{:L('item_cate_move')}" value="{:L('move')}" /> 
         <input type="button" class="btn" data-tdtype="batch_action" data-acttype="ajax" data-uri="{:U('item_cate/delete')}" data-name="id" data-msg="{:L('confirm_delete')}" value="{:L('delete')}" />
-    </div-->
+    </div>
 </div>
 <include file="public:footer" />
 <script src="__STATIC__/js/jquery/plugins/jquery.treetable.js"></script>

@@ -22,7 +22,11 @@
 
 <body>
 <div class="pad_lr_10" >
-
+    <div id="J_ajax_loading" class="ajax_loading">提交请求中，请稍候...</div>
+	<div class="subnav">
+	    <div class="content_menu ib_a blue line_x">
+	    	<a class="add fb J_showdialog" href="javascript:void(0);" data-uri="/weTall/index.php?g=Admin&m=brandlist&a=add" data-title="添加分类" data-id="add" data-width="520" data-height="360"><em>添加分类</em></a>　            </div>
+	</div><!--鏍忕洰鍒楄〃-->
 	<form name="searchform" method="get" >
     <table width="100%" cellspacing="0" class="search_form">
         <tbody>
@@ -42,32 +46,31 @@
         </tbody>
     </table>
     </form>
-
-    <!--div class="J_tablelist table_list" data-acturi="{:U('brandlist/ajax_edit')}"-->
+	
     <div class="J_tablelist table_list">
     <table width="100%" cellspacing="0">
         <thead>
             <tr>
-                <!-- <th width="40"><input type="checkbox" name="checkall" class="J_checkall"></th> -->
-				<!-- <th width="50"><span tdtype="order_by" fieldname="id">ID</span></th> -->
+                <th width="40"><input type="checkbox" name="checkall" class="J_checkall"></th>
+			    <th width="50"><span tdtype="order_by" fieldname="id">ID</span></th> 
                 <th align="left"><span data-tdtype="order_by" data-field="name">分类名称</span></th>
                 <th width="50" align="left"><span data-tdtype="order_by" data-field="ordid">排序</span></th>
                 <th width="40"><span data-tdtype="order_by" data-field="status">{:L('status')}</span></th>
-                <!-- <th width="120">{:L('operations_manage')}</th> -->
+                <th width="120">{:L('operations_manage')}</th>
             </tr>
         </thead>
     	<tbody>
             <volist name="list" id="val">
             <tr>
-                <!-- <td align="center"><input type="checkbox" class="J_checkitem" value="{$val.id}"></td> -->
-				<!-- <td align="center">{$val.id}</td> -->
+                 <td align="center"><input type="checkbox" class="J_checkitem" value="{$val.id}"></td> 
+				 <td align="center">{$val.id}</td> 
                 <td align="left"><span data-tdtype="view" data-field="name" data-id="{$val.id}" class="tdview">{$val.name}</span></td>
                 <td align="left"><span data-tdtype="view" data-field="ordid" data-id="{$val.id}" class="tdview" style="color:{$val.colors};">{$val.ordid}</span></td>
                 <td align="center"><img data-tdtype="view" data-id="{$val.id}" data-field="status" data-value="{$val.status}" src="__STATIC__/images/admin/toggle_<if condition="$val.status eq 0">disabled<else/>enabled</if>.gif" /></td>
-                <!--<td align="center">
+                <td align="center">
                 	<a href="javascript:;" class="J_showdialog" data-uri="{:U('brandlist/edit', array('id'=>$val['id']))}" data-title="{:L('edit')} - {$val.name}"  data-id="edit" data-acttype="ajax" data-width="400" data-height="130">{:L('edit')}</a> | 
                     <a href="javascript:;" class="J_confirmurl" data-acttype="ajax" data-uri="{:U('brandlist/deletebrand', array('id'=>$val['id']))}" data-msg="{:sprintf(L('confirm_delete_one'),$val['name'])}">{:L('delete')}</a>
-                </td>-->
+                </td>
             </tr>
             </volist>
     	</tbody>
@@ -75,8 +78,8 @@
     </div>
 
     <div class="btn_wrap_fixed">
-    	<!-- <label><input type="checkbox" name="checkall" class="J_checkall">{:L('select_all')}/{:L('cancel')}</label>
-    	<input type="button" class="btn" data-tdtype="batch_action" data-acttype="ajax" data-uri="{:U('brandlist/deletebrand')}" data-name="id" data-msg="{:L('confirm_delete')}" value="{:L('delete')}" /> -->
+    	<label><input type="checkbox" name="checkall" class="J_checkall">{:L('select_all')}/{:L('cancel')}</label>
+    	<input type="button" class="btn" data-tdtype="batch_action" data-acttype="ajax" data-uri="{:U('brandlist/deletebrand')}" data-name="id" data-msg="{:L('confirm_delete')}" value="{:L('delete')}" /> 
     	<div id="pages">{$page}</div>
     </div>
 

@@ -21,11 +21,11 @@ class indexAction extends frontendAction {
         /*****首页广告end******/
         
         /****最新商品*****/
-        $where = array('news'=>1, 'tokenTall'=>$tokenTall);
-        $news = $this->getItem($where);
+        $where = array('pid'=>0,'tokenTall'=>$tokenTall);
+        $news = $this->getItem_cate($where);
         /****最新商品 END*****/
          
-        /****推荐商品*****/
+        /****推荐商品****
         $where = array('tuijian'=>1, 'tokenTall'=>$tokenTall);
         $tuijian = $this->getItem($where);
         /****推荐商品 END*****/
@@ -164,6 +164,7 @@ class indexAction extends frontendAction {
     		case "tushu":$itemCate="母婴用品";break;
     		case "huazhuang":$itemCate="美妆饰品";break;
     		case "meishi":$itemCate="百货食品";break;
+    		default: $itemCate=$itemid;break;
     	}
     	
     	$item = M("item");
@@ -292,6 +293,13 @@ class indexAction extends frontendAction {
         $where =array_merge($where_init, $where);
     	
     	return $item=M('item')->where($where)->select();
+    }
+    public function getItem_cate($where = array())
+    {
+    	$where_init = array('status'=>'1');
+    	$where =array_merge($where_init, $where);
+    	 
+    	return $item=M('item_cate')->where($where)->select();
     }
     
     

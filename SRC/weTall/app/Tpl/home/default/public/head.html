@@ -37,32 +37,29 @@
 		margin: 4px 4px 0 0;
 	}
 </style>
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-<body>
-<div data-role="page" data-theme="c">
-<div data-role="header" data-position="fixed" data-fullscreen="true" data-theme="d">
-    <div data-role="navbar" data-type="horizontal">
-      <ul >
-        <li><a href="{:U('home/index/index', array('tokenTall'=>$tokenTall))}" data-icon="home">首页</a></li>
-        <li><a href="{:U('book/allcate',array('tokenTall'=>$tokenTall))}" data-icon="info">商品分类</a></li>
-        <li><a href="{:U('user/index', array('tokenTall'=>$tokenTall))}" data-icon="grid">用户中心</a></li>
-        <li><a href="{:U('shopcart/index', array('tokenTall'=>$tokenTall))}" data-icon="gear">购物车</a></li>   
-             
-      </ul>
-  </div>
-  
-  <!-- 
+
+
 <div id="nav">
 	<ul class="navlist">
-		<li class="r" id="n_4"><a href="{:U('home/index/index', array('tokenTall'=>$tokenTall))}"><div class="home_page_logo"></div></a></li>
+		<li class="r" id="n_4"><a href="{:U('index/index',array('tokenTall'=>$tokenTall))}"><div class="home_page_logo"></div></a></li>
     	<li id="n_0">
     		<a href="{:U('book/allcate',array('tokenTall'=>$tokenTall))}" ><span ></span></a>
+        	<!--ul class="submenu">
+        	<volist name='index_cate_list' id='vo' >
+        		<li>
+                    <a href="{:U('book/cate',array('cid'=>$vo['id'],'tokenTall'=>$tokenTall))}" class="none_ico"> {$vo.name}</a><br>
+                </li>
+            </volist>
+            </ul-->
         </li>
+        
         <li class="r active" id="n_1">
-            <a href="{:U('home/index/index', array('tokenTall'=>$tokenTall))}"><span></span></a>
-        </li>
+           <if condition="$tokenTall eq ''">
+              <a href="/index.php?g=Wap&m=weTall&a=index">
+              <else/>
+              <a href="{:U('home/index/index', array('tokenTall'=>$tokenTall))}">
+           </if>
+        <span></span></a></li>
         <li class="r" id="n_2"><a href="{:U('user/index', array('tokenTall'=>$tokenTall))}"><span></span></a></li>
         <li class="r" id="n_3"><a href="{:U('shopcart/index', array('tokenTall'=>$tokenTall))}"><span></span></a><i></i></li>
         
@@ -79,4 +76,4 @@
 			}
         });
     </script>
-</div> -->
+</div>
